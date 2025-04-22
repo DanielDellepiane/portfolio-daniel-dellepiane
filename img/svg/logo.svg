@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Livello_2" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 401.4 67.3">
+  <!-- Generator: Adobe Illustrator 29.4.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 152)  -->
+  <defs>
+    <style>
+      .st0 {
+        font-family: Poppins-ExtraBold, Poppins;
+        font-size: 40px;
+        font-weight: 700;
+      }
+
+      .st0, .st1, .st2 {
+        isolation: isolate;
+      }
+
+      .st0, .st2 {
+        fill: #d6d6d6;
+      }
+
+      .st2 {
+        font-family: Poppins-Light, Poppins;
+        font-size: 23.6px;
+        font-weight: 300;
+      }
+    </style>
+  </defs>
+  <g class="st1">
+    <text class="st0" transform="translate(4.8 37)"><tspan x="0" y="0">DANIEL DELLEPIANE</tspan></text>
+  </g>
+  <text class="st2" transform="translate(5.1 60.7)"><tspan x="0" y="0">FILMMAKER, PHOTOGRAPHER, UX/UI</tspan></text>
+</svg>

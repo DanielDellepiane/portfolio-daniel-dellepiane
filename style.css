@@ -1,0 +1,836 @@
+/* --- ESTRUCTURA GENERAL DEL CSS: scroll suave, variables, reset, tipografías locales, 
+utilitarias, header, menú, logo e íconos, main, intro, secciones multimedia, galerías, carrusel vídeos, contacto, footer, 
+media queries, --- */
+
+/* ---  HTML Scroll suave al hacer clic en enlaces ancla --- */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ---  VARIABLES -> Definición de Custom Properties globales */
+
+:root {
+    --white: #DDDED9;
+    --black: #212121;
+    --font: 'Poppins', sans-serif;
+    --font-size-base: 16px;
+    --line-height: 1.5;
+    --font-weight: 400;
+    --gap-base: 1.25rem;
+    --opacitytransition: opacity 0.5s ease;
+    --lowopacity: 0.7;
+    --d-flex: flex;
+}
+
+/* ------ RESET -> Reset básico de márgenes, padding, bordes, box-sizing y decoraciones.*/
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+/* --- BODY -> Estructura base del body: Flexbox en columna, background y font con variables, min-height. */
+
+.body {
+    justify-content: flex-start;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height);
+    font-family: var(--font);
+    min-height: 100vh;
+}
+
+/* ---  FONT -> Carga local (./fonts/)de la tipografía 'Poppins' en distintas variantes de peso.*/
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(./fonts/poppins-woff2/Poppins-Thin.woff2);
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(./fonts/poppins-woff2/Poppins-Light.woff2);
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(./fonts/poppins-woff2/Poppins-Regular.woff2);
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(./fonts/poppins-woff2/Poppins-Black.woff2);
+    font-weight: 900;
+    font-style: normal;
+}
+
+/* -- Utility classes para poder cambiar rápidamente clases a lo largo del código --*/
+
+.flex-center {
+    display: var(--d-flex);
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.flex-center-column {
+    display: var(--d-flex);
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.d-flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.center {
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.visually-hidden {
+    width: .0625rem;
+    height: .0625rem;
+    margin: -0.0625rem;
+    overflow: hidden;
+    border: 0;
+}
+
+.btn-base {
+    display: var(--d-flex);
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    font-weight: 100;
+    border: solid .0625rem var(--white);
+    color: var(--white);
+    background-color: var(--black);
+    transition: var(--opacitytransition) background-color 1s ease;
+    cursor: pointer;
+    border-radius: .3125rem;
+}
+
+.thin {
+    font-weight: 100;
+}
+
+.bg-white {
+    background-color: var(--white);
+}
+
+.bg-black {
+    background-color: var(--black);
+}
+
+.bg-trans {
+    background-color: transparent;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.border {
+    border: solid .0625rem var(--white);
+    color: var(--white);
+    font-weight: 100;
+}
+
+.radius {
+    border-radius: .3125rem;
+}
+
+.white {
+    color: var(--white);
+}
+
+img,
+video {
+    width: 100%;
+    height: auto;
+}
+
+.media-section__default {
+    width: 100%;
+    height: auto;
+    border-radius: .3125rem;
+    cursor: pointer;
+}
+
+.height-auto {
+    height: auto;
+}
+
+.opacity {
+    opacity: 1;
+}
+
+svg,
+symbol,
+g {
+    cursor: default;
+}
+
+/* ------ Header -> Font-size y posición sticky para que sea sempre visible. */
+.header {
+    font-size: clamp(1rem, 2vw, 2rem);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    mix-blend-mode: difference;
+}
+
+/* ------ Menu --- Definición y estilo de la barra de navegación principal.*/
+.menu {
+    justify-content: space-between;
+    padding: 1.25rem;
+    position: sticky;
+
+}
+
+.menu__link {
+    padding: .625rem;
+    font-weight: 200;
+    transition: var(--opacitytransition);
+    color: var(--white);
+
+}
+
+.menu__link:hover {
+    opacity: var(--lowopacity);
+}
+
+.menu__nav-mobile {
+    display: flex;
+    position: fixed;
+    top: 3.75rem;
+    right: .4375rem;
+    padding: 1rem;
+    z-index: 4;
+
+}
+
+.menu__nav-mobile.hidden {
+    display: none;
+}
+
+.menu__ul--mobile {
+    gap: 1rem;
+    background-color: var(--black);
+    padding: 1rem;
+    list-style: none;
+    border-radius: .1875rem;
+}
+
+/* ------ Logo y iconos -> Incluye efectos de hover y active para mejorar la interacción visual.*/
+
+.menu__logo-img {
+    height: 4rem;
+    width: auto;
+}
+
+.cls-1,
+.cls-2,
+.cls-3 {
+    isolation: isolate;
+}
+
+.cls-2 {
+    font-family: Poppins-Light, Poppins;
+    font-size: 1.475rem;
+    font-weight: 300;
+    fill: #d6d6d6;
+}
+
+.cls-3 {
+    font-family: Poppins-Bold, Poppins;
+    font-size: 2.5rem;
+    font-weight: 700;
+    fill: #d6d6d6;
+}
+
+.menu__hamburger-icon {
+    width: 2.5rem;
+}
+
+.menu__hamburger:hover .menu__hamburger-icon {
+    opacity: var(--lowopacity);
+}
+
+.menu__hamburger:active .menu__hamburger-icon {
+    filter: brightness(0) invert(1);
+}
+
+/* ------ Main -> Contenedor principal de la página: disposición general y márgenes.*/
+
+.main {
+    margin: 0 auto;
+    flex: 1;
+    justify-content: flex-start;
+}
+
+.main>* {
+    max-width: 100%;
+    margin: 0 auto;
+    padding-left: 4.375rem;
+    padding-right: 4.375rem;
+}
+
+/* ------ Titles intro  -> Sección introductoria con lema, subtítulo y call to action.*/
+.intro {
+    padding-top: 3.5rem;
+    padding-bottom: 7.5rem;
+    gap: 1.5625rem;
+    border-bottom: solid .0625rem var(--white);
+}
+
+.intro__motto {
+    font-size: clamp(3rem, 8vw, 9rem);
+    line-height: clamp(1, 1.4, 1.2);
+    font-weight: 900;
+    padding-top: 1rem;
+}
+
+.intro__title {
+    padding-top: 0;
+    padding-bottom: .25rem;
+    font-size: clamp(2rem, 5vw, 5rem);
+    line-height: clamp(0.9, 1.1, 1.8);
+}
+
+.intro__button {
+    width: auto;
+    height: 5.625rem;
+    gap: var(--gap-base);
+    font-size: 3vw;
+}
+
+.intro__button:active {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+.intro__button-arrow {
+    width: 1.875rem;
+}
+
+.button {
+    transition: var(--opacitytransition), background-color 1s ease;
+}
+
+.button:hover {
+    opacity: var(--lowopacity);
+    cursor: pointer;
+}
+
+/* ------ Portfolio sections -> Sección de portfolio: define el estilo de los títulos y subtítulos.*/
+
+.media-section {
+    padding-top: 3.75rem;
+    padding-bottom: 7.5rem;
+    gap: 1vw;
+    border-bottom: solid .0625rem var(--white);
+}
+
+.media-section__title {
+    font-size: clamp(4rem, 10vw, 8rem);
+    line-height: clamp(1.2, 1.5, 2);
+    font-weight: 900;
+    max-width: 100%;
+    padding-top: 4vw;
+}
+
+.media-section__subtitle,
+.about-section__subtitle {
+    font-size: clamp(1.4rem, 3vw, 3rem);
+    line-height: clamp(2rem, 4vw, 4rem);
+    font-weight: 300;
+    padding-top: .625rem;
+    padding-bottom: .625rem;
+}
+
+/* ------ Photography y filters: Galería de foto y filtros interactivos */
+
+.photography-section__gallery-filters {
+    flex-wrap: wrap;
+    padding-top: 2vw;
+    gap: 2vw;
+    font-size: 2vw;
+    padding-bottom: .9375rem;
+}
+
+.photography-section__gallery-filters-line {
+    flex-wrap: wrap;
+    gap: 2vw;
+}
+
+.photography-filter {
+    font-size: clamp(1rem, 2.5vw, 2rem);
+    padding: 0rem 1.25rem;
+}
+
+.photography-filter.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+}
+
+button {
+    background-color: var(--black);
+    border-radius: .1875rem;
+    font-weight: 100;
+    border: solid .0625rem var(--white);
+    color: var(--white);
+}
+
+.btn-base:hover,
+button:hover {
+    opacity: var(--lowopacity);
+    cursor: pointer;
+    color: var(--white);
+    transition: var(--opacitytransition);
+}
+
+.btn-base:active,
+button:active {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+/* ------ Animación de aparición para las imágenes al filtrar.*/
+
+.photography-section__picture {
+    opacity: 0;
+    transform: translateY(-0.625rem);
+    transition: var(--opacitytransition), transform 0.6s ease;
+}
+
+.photography-section__picture.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ------ Gallery -> Estilos para la visualización de imágenes en formato grid.*/
+
+.media-section__gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: .625rem;
+    padding-bottom: .625rem;
+}
+
+.photography-section__picture img {
+    display: block;
+    object-fit: cover;
+}
+
+/* ------ Lightbox -> Estilos para la galería lightbox de imágenes en pantalla completa.*/
+
+.lightbox__overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    z-index: 4;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+.lightbox__overlay.open {
+    display: var(--d-flex);
+}
+
+.lightbox__content {
+    min-width: 90%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+}
+
+.lightbox__track {
+    display: var(--d-flex);
+    transition: transform 0.3s ease;
+}
+
+.lightbox__slide {
+    min-width: 100%;
+    display: var(--d-flex);
+    justify-content: center;
+}
+
+.lightbox__slide img {
+    display: block;
+    max-width: 90%;
+    transition: var(--opacitytransition);
+}
+
+.lightbox__prev,
+.lightbox__next,
+.lightbox__close {
+    position: absolute;
+    top: .625rem;
+    font-size: 2rem;
+    color: var(--white);
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.lightbox__prev {
+    left: .625rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lightbox__next {
+    right: .625rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lightbox__close {
+    right: .625rem;
+    top: .625rem;
+}
+
+.lightbox__dots {
+    position: absolute;
+    bottom: .625rem;
+    width: 100%;
+    text-align: center;
+}
+
+.lightbox__dot {
+    display: inline-block;
+    width: clamp(.375rem, 1.2vw, .625rem);
+    height: clamp(.375rem, 1.2vw, .625rem);
+    margin: .125rem;
+    border-radius: 50%;
+    background: var(--white);
+    opacity: 0.4;
+    cursor: pointer;
+}
+
+.lightbox__dot.active {
+    opacity: 1;
+}
+
+/* ------ Audiovisual ->  Sección audiovisual, parecida a la fotográfica, incluye el carrusel de videos.*/
+.media-section__carousel-container {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+}
+
+.media-section__carousel-wrapper {
+    max-width: 100rem;
+    overflow: hidden;
+}
+
+.media-section__carousel-track {
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.media-section__carousel-item {
+    flex: 0 0 33.3333%;
+    padding: 0 .3125rem;
+}
+
+.media-section__carousel-item video {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+}
+
+.media-section__carousel-btn {
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    font-size: 2.5rem;
+    padding: 0.5rem;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0);
+    transition: transform 0.3s ease;
+    position: absolute;
+}
+
+.media-section__carousel-btn:hover {
+    transform: translateY(-50%) scale(1.1);
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.media-section__carousel-btn.prev {
+    left: .625rem;
+}
+
+.media-section__carousel-btn.next {
+    right: .625rem;
+}
+
+/* ------ Projects -> Sección de proyectos con imágenes destacadas y enlaces. */
+
+.media-section__photo {
+    margin-top: 1.25rem;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    position: relative;
+}
+
+.media-section__photo img {
+    top: 0;
+    left: 0;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-section__title {
+    font-size: clamp(1.5rem, 5vw, 5rem);
+}
+
+.project-section__text {
+    justify-content: space-between;
+    padding-bottom: 1.5625rem;
+}
+
+.projects__button {
+    gap: var(--gap-base);
+    font-size: clamp(0.7rem, 2vw, 1.5rem);
+    font-weight: 200;
+    height: clamp(1.875rem, 5vw, 2.5rem);
+    padding: 0 clamp(1.25rem, 5vw, 2.5rem);
+    transition: var(--opacitytransition), background-color 1s ease;
+}
+
+.projects__button:active {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+/* ------ Contact -> Sección de contacto: formulario, inputs y botón.*/
+.contact-section__title {
+    font-size: 9vw;
+    text-align: left;
+    align-self: flex-start;
+}
+
+.contact-section__container {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.contact-section__form {
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding-top: 3.125rem;
+    padding-bottom: 4.375rem;
+    max-width: none;
+    flex: 1;
+    gap: var(--gap-base);
+}
+
+.contact-section__text-input {
+    min-height: 1.25rem;
+    align-self: center;
+    border-bottom: solid .0625rem var(--white);
+    font-size: 1rem;
+    padding: 1.875rem;
+    width: 100%;
+    border-radius: .3125rem;
+}
+
+.contact-section__text-input--big {
+    height: 20rem;
+    padding: 1.875rem;
+    font-size: 1rem;
+    font-family: var(--font);
+    width: 100%;
+    border-radius: .3125rem;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+}
+
+.contact-section {
+    margin: 0;
+
+}
+
+.contact-section__button {
+    margin-top: 2.5rem;
+    padding: .625rem;
+    font-size: clamp(0.8rem, 2vw, 1.2rem);
+    transition: background-color 1s ease;
+    width: 100%;
+}
+
+.contact-section__button:hover {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+.contact-section__button:active {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+/* ------ Footer -> Estilos para el footer, links, logotipo y rrss. */
+.footer {
+    padding-top: 3.125rem;
+    gap: 3.125rem;
+}
+
+.footer__nav {
+    align-items: flex-end;
+
+}
+
+.footer__ul {
+    flex-wrap: wrap;
+    gap: .625rem;
+    list-style: none;
+    font-size: clamp(0.6rem, 2vw, 1.5rem);
+
+}
+
+.footer__logo {
+    margin-bottom: 3.125rem;
+}
+
+.footer__link {
+    font-size: clamp(0.6rem, 2vw, 1.5rem);
+    font-weight: 200;
+}
+
+.footer__socialmedia-logo {
+    width: 1.25rem;
+}
+
+/* ------ Media Queries -> Responsive para adaptar el diseño a diferentes pantallas.*/
+
+@media(max-width:480px) {
+    .main>* {
+        padding-left: 1.875rem;
+        padding-right: 1.875rem;
+    }
+
+    .menu__logo-img {
+        width: 9.375rem;
+    }
+
+    .menu__hamburger {
+        padding-right: 0rem;
+    }
+
+    .menu__hamburger-icon {
+        width: 1.875rem;
+    }
+
+    .media-section__title {
+        font-size: clamp(2rem, 7vw, 5rem);
+    }
+
+    .footer__link {
+        font-size: clamp(0.7rem, 2vw, 1.5rem);
+        font-weight: 400;
+    }
+}
+
+@media (min-width:480px) and (max-width:780px) {
+    .media-section__title {
+        font-size: clamp(2.8rem, 8vw, 5rem);
+    }
+}
+
+@media(max-width:780px) {
+    .main>* {
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+    }
+
+    .intro__button {
+        width: auto;
+        height: 3.125rem;
+        gap: 1.25rem;
+    }
+
+    .intro__button-arrow {
+        width: 1.25rem;
+    }
+
+    .media-section {
+        padding-top: 4.375rem;
+        padding-bottom: 6.375rem;
+    }
+
+    .media-section__carousel-item {
+        flex: 0 0 100%;
+    }
+
+    .media-section__carousel-item video {
+        aspect-ratio: 4/3;
+    }
+
+    .media-section__carousel-btn {
+        font-size: 2rem;
+        padding: 0.3rem;
+    }
+}
+
+@media(min-width:1080px) {
+
+    .intro__motto {
+        line-height: 1.2;
+        padding-top: 2rem;
+    }
+
+    .intro__title {
+        line-height: 1;
+    }
+}
+
+@media(max-width:1080px) {
+    .media-section__gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ------ Scroll Reveal -> Aparición progresiva de los elementos al hacer scroll.*/
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(2.5rem);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

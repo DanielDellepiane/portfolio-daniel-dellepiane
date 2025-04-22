@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+Descripción: Este archivo HTML contiene el proyecto de El Uruguayo.
+Estructura:
+- Header
+- Menú de navegación
+- Portada con Trailer
+- Título y breve descripción
+- Galería fotográfica
+- Descripción
+- Información sobre mi
+- Contacto
+- Footer con redes sociales
+-->
+
+<!---------------- 
+    HEAD
+    Contiene metadatos del documento, enlaces a estilos y recursos, e información para el navegador y buscadores.
+---------------->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="El Uruguayo, shortfilm about a gaucho who left Argentina for Galicia.">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="icon" href="./img/svg/favicon.svg" type="image/svg">
+    <title>El Uruguayo Shortfilm</title>
+</head>
+
+<!---------------- 
+    BODY
+    Contenedor principal de todo el contenido visible en la página, incluyendo encabezado, secciones y pie de página.
+---------------->
+
+<body class="body d-flex column bg-black white">
+    <!---------------- 
+    SVG PARA EL LOGO
+    ---------------->
+    <svg style="display: none;">
+        <symbol id="logo-daniel" viewBox="0 0 385 71.11">
+
+            <g class="cls-1">
+                <text class="cls-3" transform="translate(0 34.1)">DANIEL DELLEPIANE</text>
+            </g>
+            <g class="cls-1">
+                <text class="cls-2" transform="translate(0.3 57.8)">FILMMAKER, PHOTOGRAPHER, UX/UI</text>
+            </g>
+        </symbol>
+    </svg>
+
+    <!---------------- 
+    HEADER
+    Aquí tenemos logotipo y el menú hamburguesa (por decisión artística se queda hamburguesa en todos los dispositivos).
+    ---------------->
+    <header class="header">
+
+        <!---------------- 
+        MENU
+        Contenedor del logo y el icono del menú hamburguesa.
+        Separado como clase .menu para modularizar el diseño y controlar su estilo de forma independiente del header.
+        ---------------->
+        <div class="menu d-flex center">
+            <!-- LOGO -->
+            <div class="menu__logo flex-center column"><svg class="menu__logo-img media-section__default" role="img"
+                    aria-label="daniel dellepiane logo with subtitle">
+                    <use href="#logo-daniel"></use>
+                </svg></div>
+
+            <!---------------- ICONO DEL MENU HAMBURGER ---------------->
+            <div class="menu__hamburger" id="hamburger">
+                <div class="hamburger icon"><img src="./img/svg/menu.svg" alt="hamburger menu icon"
+                        class="menu__hamburger-icon media-section__default" title="menu icon" loading="lazy"></div>
+            </div>
+        </div>
+    </header>
+
+    <!---------------- 
+    MENÚ DE NAVEGACIÓN
+    Navegación principal del sitio, desplegable desde el menú hamburguesa. Fuera del header para no heredar la opacidad.
+    ---------------->
+    <nav class="menu__nav-mobile hidden" id="menu__nav-dropdown">
+        <ul class="menu__ul--mobile d-flex column opacity">
+            <li><a href="./index.html" class="menu__link white" target="_blank" rel="noreferrer" title="home">HOME</a>
+            </li>
+            <li><a href="#aboutme" class="menu__link white" title="about me">ABOUT ME</a></li>
+            <li><a href="#contact" class="menu__link white" title="contact">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <!---------------- COVER TRAILER---------------->
+    <div class="cover">
+        <video class="cover__video full" poster="./img/webp/eluruguayo.webp" autoplay muted loop>
+            <source src="./video/mp4/eluruguayo.mp4" type="video/mp4">
+            <source src="./video/webm/eluruguayo.webm" type="video/webm">
+        </video>
+    </div>
+
+    <!---------------- MAIN ---------------->
+    <main class="main d-flex column full">
+
+        <section class="photography-section media-section d-flex column full">
+            <h1 class="media-section__title">/*El Uruguayo</h1>
+            <p class="media-section__subtitle">This documentary tells the story of Rubén, a gaucho who left Argentina
+                for Galicia. It contrasts his natural, traditional life with today’s urban world, highlighting the
+                beauty of living close to nature.</p>
+
+            <!---------------- 
+            PHOTOGRAPHY SECTION
+            Fotografías del proyecto.
+            ---------------->
+
+            <picture class="media-section__photo">
+                <source srcset="./img/webp/eluruguayo/eluruguayo-close.webp" type="image/webp">
+                <source srcset="./img/jpg/eluruguayo/eluruguayo-close.jpg" type="image/jpeg">
+                <img src="./img/jpg/eluruguayo/eluruguayo-close.jpg" class="media-section__default" loading="lazy"
+                    alt="horse close up" title="Close up of a horse">
+            </picture>
+
+            <picture class="media-section__photo">
+                <source srcset="./img/webp/eluruguayo/eluruguayo-guitar.webp" type="image/webp">
+                <source srcset="./img/jpg/eluruguayo/eluruguayo-guitar.jpg" type="image/jpeg">
+                <img src="./img/jpg/eluruguayo/eluruguayo-guitar.jpg" class="media-section__default" loading="lazy"
+                    alt="el uruguayo playing the guitar" title="el uruguayo playing the guitar">
+            </picture>
+
+            <picture class="media-section__photo">
+                <source srcset="./img/webp/eluruguayo/eluruguayo-horse.webp" type="image/webp">
+                <source srcset="./img/jpg/eluruguayo/eluruguayo-horse.jpg" type="image/jpeg">
+                <img src="./img/jpg/eluruguayo/eluruguayo-horse.jpg" class="media-section__default" loading="lazy"
+                    alt="el uruguayo with his horse" title="el uruguayo and the horse">
+            </picture>
+
+            <picture class="media-section__photo">
+                <source srcset="./img/webp/eluruguayo.webp" type="image/webp">
+                <source srcset="./img/jpg/eluruguayo.jpg" type="image/jpeg">
+                <img src="./img/jpg/eluruguayo.jpg" class="media-section__default" loading="lazy"
+                    alt="el uruguayo film cover" title="el uruguayo shortfilm">
+            </picture>
+
+            <!---------------- 
+            DESCRIPCIón DEL PROYECTO
+            ---------------->
+            <p class="about-section__subtitle">
+                This is the story of Rubén, a gaucho who moved to Galicia (Spain) fifteen years ago with his five
+                children, fleeing his homeland in search of a better future. His only purpose in life has always been to
+                live in nature and with horses. In this documentary, the gaucho shares a small portion of his life, one
+                so different from what we deal with every day.
+            </p>
+            <p class="about-section__subtitle">
+                What this short film shows is precisely this difference, so striking, between a lifestyle that will one
+                day become archaic and today’s urban world, this soap bubble we call the city, which has become the
+                whole world, as if nothing existed outside of it, only images, simulations of what lies beyond. One
+                thing Rubén repeated often was the symbolism of concrete as the representation of the city, and that
+                really made me reflect. What we wanted to show was the beauty of living in harmony with nature, because
+                if we use a clock to represent the entire history of humanity, we, children of the industrial
+                revolution, are living in the last two seconds before midnight. And all the people living today have a
+                lifestyle unlike any who came before.
+            </p>
+            <p class="about-section__subtitle">
+                Much of this documentary was created in the moment, as life unfolded, and thanks to Rubén’s spontaneity,
+                because after all, it is simply his everyday life.
+            </p>
+        </section>
+
+        <!---------------- 
+        ABOUT SECTION
+
+        Sección dedicada a mi biografía, que incluye su fotografía de perfil y una descripción sobre mi historia personal y profesional.
+        Imágenes optimizadas para mejorar la carga, acompañadas de un texto que habla de mis estudios y pasiones. 
+        ---------------->
+        <div id="aboutme"></div>
+        <section class="media-section about-section  d-flex column full">
+            <h2 class="media-section__title">/*I am Daniel</h2>
+
+            <picture class="media-section__photo radius full">
+                <source srcset="./img/webp/daniel.webp" type="image/webp">
+                <source srcset="./img/jpg/daniel.jpg" type="image/jpeg">
+                <img src="./img/jpg/daniel.jpg" class="media-section__default absolute" loading="lazy"
+                    alt="daniel's profile photo" title="Daniel working with his camera">
+            </picture>
+
+            <p class="about-section__subtitle">
+                I was born in Milan, from a Danish father and Italian mother, and lived there until I was 19.
+                In my earlier my formative years, I attended a digital communication-dedicated high school. This meant
+                that from the start, it allowed me to develop little projects and earn something to satisfy some whims,
+                like buying my first bike which I used to ride for 40km to go to school.</p>
+            <p class="about-section__subtitle">
+                A few years ago, I moved to Bologna to study Cinematography at the Alma Mater Studiorum (Università di
+                Bologna). Then, I lived in Santiago de Compostela to study Spanish. Few years ago, I moved to Valencia
+                with the idea of studying a Máster degree in Filmmaking in Barreira & Centro Sperimentale di
+                Cinematografia. I lived there for few years and I worked in a Design Studio called Culdesac.</p>
+            <p class="about-section__subtitle">
+                Currently, I am living in A Coruña (Galicia) searching for a new opportunity.
+                The idea of a team and community sharing passion and vision, and working for a purpose is a principle I
+                strongly feel connected to. My main purpose in life is to connect my passions: cinematography, travel,
+                nature and sport into something bigger.</p>
+        </section>
+
+        <!---------------- 
+        CONTACT SECTION
+
+        Esta sección permite a los usuarios ponerse en contacto a través de un formulario. Los campos incluyen nombre, correo electrónico y mensaje.
+        La parte BACKEND está pendiente de implementar.
+        ---------------->
+        <div id="contact"></div>
+        <section class="media-section contact-section d-flex column full">
+            <h2 class="media-section__title">/*Let's get in touch</h2>
+            <div class="contact-section__container flex-center">
+                <form class="contact-section__form d-flex column full" method="POST" action="#">
+
+                    <label for="firstname" class="visually-hidden absolute">First name</label>
+
+                    <!---------------- 
+                    INPUT FIELDS
+
+                    Los campos de texto tienen la etiqueta oculta mediante la clase "visually-hidden" por razones estéticas,
+                    mientras que los placeholders proporcionan las indicaciones visibles para el usuario.
+                    ---------------->
+
+                    <input type="text" id="firstname" class="contact-section__text-input radius bg-trans white full"
+                        name="firstname" required placeholder="Your name here">
+                    <label for="email" class="visually-hidden">E-mail</label>
+                    <input type="email" id="email"
+                        class="contact-section__text-input radius bg-trans white contact-section__text-input--mail full"
+                        name="email" required placeholder="Your E-mail here">
+
+                    <label for="message" class="visually-hidden">Message</label>
+                    <textarea name="message" id="message"
+                        class="contact-section__text-input--big white radius bg-trans border full" required
+                        placeholder="Write something here"></textarea>
+
+                    <input type="submit" value="SEND" class="contact-section__button btn-base radius full">
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!---------------- 
+    FOOTER
+
+    Contiene enlaces a redes sociales, enlaces de las secciones clave y el logo.
+    ---------------->
+
+    <footer class="footer flex-center d-flex column center">
+        <div class="footer__socialmedia">
+            <a href="https://www.instagram.com/danielo_intheworld/" aria-label="Instagram profile" title="instagram"
+                rel="noreferrer" target="_blank" class="footer__link">
+                <img src="./img/svg/instagram.svg" alt="instagram logo" class="footer__socialmedia-logo height-auto"
+                    title="instagram logo"></a>
+            <a href="https://www.linkedin.com/in/danieldellepiane/" aria-label="Linkedin profile" title="linkedin"
+                rel="noreferrer" target="_blank" class="footer__link footer__link">
+                <img src="./img/svg/linkedin.svg" alt="linkedin logo" class="footer__socialmedia-logo height-auto"
+                    title="linkedin logo"></a>
+        </div>
+
+        <nav class="footer__nav d-flex full center">
+
+            <a href="./index.html" class="menu__link footer__link white" target="_blank" rel="noreferrer"
+                title="home">HOME</a>
+
+        </nav>
+
+        <div class="footer__logo flex-center column"> <svg class="menu__logo-img media-section__default" role="img"
+                aria-label="daniel dellepiane logo with subtitle">
+                <use href="#logo-daniel"></use>
+            </svg></div>
+    </footer>
+    <!---------------- 
+    JAVASCRIPT
+
+    Se incluye el script JavaScript.
+    ---------------->
+    <script src="./script.js" defer></script>
+    <!---------------- 
+    BODY END
+
+    Aquí acaba el Body.
+    ---------------->
+</body>
+
+<!---------------- 
+    HTML END
+
+    Aquí acaba el HTML.
+    ---------------->
+
+</html>

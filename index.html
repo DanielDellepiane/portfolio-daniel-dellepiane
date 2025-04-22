@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+Descripción: Este archivo HTML contiene la página principal del Portfolio de Daniel Dellepiane.
+Estructura:
+- Header
+- Menú de navegación
+- Portada con vídeo reel 
+- Lema y profesión
+- Secciones principales (fotografía, audiovisual y proyectos)
+- Información sobre mi
+- Contacto
+- Footer con redes sociales
+-->
+<!---------------- 
+    HEAD
+    Contiene metadatos del documento, enlaces a estilos y recursos, e información para el navegador y buscadores.
+---------------->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Daniel Dellepiane is an Italian Filmmaker, Photographer & UX/UI Designer based in La Coruña, Spain.">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="icon" href="./img/svg/favicon.svg" type="image/svg">
+    <title>Daniel Dellepiane Portfolio</title>
+</head>
+
+<!---------------- 
+    BODY
+    Contenedor principal de todo el contenido visible en la página, incluyendo encabezado, secciones y pie de página.
+---------------->
+
+<body class="body d-flex-column bg-black white">
+    <!---------------- 
+    SVG PARA EL LOGO
+    ---------------->
+    <svg style="display: none;">
+        <symbol id="logo-daniel" viewBox="0 0 385 71.11">
+
+            <g class="cls-1">
+                <text class="cls-3" transform="translate(0 34.1)">DANIEL DELLEPIANE</text>
+            </g>
+            <g class="cls-1">
+                <text class="cls-2" transform="translate(0.3 57.8)">FILMMAKER, PHOTOGRAPHER, UX/UI</text>
+            </g>
+        </symbol>
+    </svg>
+
+    <!---------------- 
+    HEADER
+    Aquí tenemos logotipo y el menú hamburguesa (por decisión artística se queda hamburguesa en todos los dispositivos).
+    ---------------->
+    <header class="header">
+
+        <!---------------- 
+        MENU
+        Contenedor del logo y el icono del menú hamburguesa.
+        Separado como clase .menu para modularizar el diseño y controlar su estilo de forma independiente del header.
+        ---------------->
+        <div class="menu flex-center">
+            <!-- LOGO -->
+
+            <div class="menu__logo flex-center column"><svg class="menu__logo-img" role="img"
+                    aria-label="daniel dellepiane logo with subtitle">
+                    <use href="#logo-daniel"></use>
+                </svg></div>
+
+            <!---------------- ICONO DEL MENU HAMBURGER ---------------->
+            <div class="menu__hamburger" id="hamburger">
+                <div class="hamburger icon"><img src="./img/svg/menu.svg" alt="hamburger menu icon flex-column"
+                        class="menu__hamburger-icon media-section__default" title="menu icon" loading="lazy"></div>
+            </div>
+        </div>
+    </header>
+
+    <!---------------- 
+    MENÚ DE NAVEGACIÓN
+    Navegación principal del sitio, desplegable desde el menú hamburguesa. Fuera del header para no heredar la opacidad.
+---------------->
+    <nav class="menu__nav-mobile hidden" id="menu__nav-dropdown">
+        <ul class="menu__ul--mobile flex-center-column opacity">
+            <li><a href="./index.html" class="menu__link" title="home">HOME</a></li>
+            <li><a href="#photography" class="menu__link" title="photography">PHOTOGRAPHY</a></li>
+            <li><a href="#audiovisual" class="menu__link" title="audiovisual">AUDIOVISUAL</a></li>
+            <li><a href="#projects" class="menu__link" title="projects">PROJECTS</a></li>
+            <li><a href="#aboutme" class="menu__link" title="about me">ABOUT ME</a></li>
+            <li><a href="#contact" class="menu__link" title="contact">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <!---------------- COVER REEL---------------->
+    <div class="cover">
+        <video class="cover__video" poster="./img/webp/reel.webp" rel="preload" muted autoplay loop>
+            <source src="./video/showreel-daniel-dellepiane.mp4" type="video/mp4">
+            <source src="./video/showreel-daniel-dellepiane.webm" type="video/webm">
+        </video>
+    </div>
+
+    <!---------------- MAIN ---------------->
+    <main class="main d-flex-column">
+
+        <!---------------- 
+        LEMA, PROFESIóN Y CALL TO ACTION
+        Sección introductoria con lema, título principal y call to action para desplazarse al contenido principal
+        Funciona como una presentación rápida del perfil profesional y dirige al usuario hacia el portfolio.
+        ---------------->
+        <section class="intro d-flex-column">
+            <p class="intro__motto">We must go and see by ourselves</p>
+            <h1 class="intro__title thin">I am an Italian Filmmaker, Photographer & UX/UI Designer based in La Coruña,
+                Spain.
+            </h1>
+
+
+            <a href="#photography" title="photography">
+                <div class="intro__button btn-base">
+                    <img src="./img/svg/arrow.svg" alt="arrow-bottom"
+                        class="intro__button-arrow radius media-section__default" title="arrow-down"
+                        loading="lazy">DISCOVER MORE
+                </div>
+            </a>
+        </section>
+
+        <!---------------- 
+        PHOTOGRAPHY SECTION
+        Sección dedicada a los proyectos fotográficos.
+        Incluye título y texto introductorio que contextualiza la galería sucesiva.
+        ---------------->
+        <div id="photography"></div>
+        <section class="photography-section media-section d-flex-column">
+            <h2 class="media-section__title">/*Photography</h2>
+            <p class="media-section__subtitle">I have lived many lives, each with its own stories, emotions, and
+                changes. Photography has always been by my side, a silent witness to every experience, representing and
+                documenting every moment lived.</p>
+
+            <!---------------- 
+            PHOTOGRAPHY SECTION GALLERY
+            Galería fotográfica con sistema de filtros por categorías: al seleccionar un filtro, se muestra la sección correspondiente. 
+            La navegación dentro de la galería se realiza mediante un lightbox con flechas laterales para avanzar o retroceder entre las imágenes.
+            ---------------->
+
+            <div class="photography-section__gallery d-flex-column">
+                <div class="photography-section__gallery-filters d-flex">
+                    <div class="photography-section__gallery-filters-line d-flex">
+                        <button class="photography-section__outdoor-filter photography-filter button border"
+                            title="outdoor button">OUTDOOR</button>
+                        <button class="photography-section__architecture-filter photography-filter button border"
+                            title="interior button">INTERIOR
+                            &
+                            ARCHITECTURE</button>
+                    </div>
+                    <div class="photography-section__gallery-filters-line d-flex">
+                        <button class="photography-section__travel-filter photography-filter button border"
+                            title="travel button">TRAVEL</button>
+                        <button class="photography-section__product-filter photography-filter button border"
+                            title="product button">PRODUCT</button>
+                    </div>
+                </div>
+
+                <!---------------- 
+                OUTDOOR GALLERY
+                Sección de la galería fotográfica dedicada a fotografías al aire libre.
+                Se activa al seleccionar el filtro "OUTDOOR" y forma parte del sistema general de navegación mediante lightbox.
+                ---------------->
+
+                <div class="photography-section__outdoor-gallery media-section__gallery">
+
+                    <!---------------- 
+                FOTOGRAFÍA
+
+                Una de las imágenes de la galería, contenida en un <picture> con formatos .webp y .jpg como fallback.
+                Se utiliza lazy loading y metadatos accesibles (alt, title) para optimizar el rendimiento y la accesibilidad.
+
+                Al hacer clic, se activa un lightbox navegable mediante JavaScript, que permite recorrer toda la galería con flechas laterales.
+                ---------------->
+                    <picture class="photography-section__picture">
+                        <source srcset="./img/webp/outdoor/outdoor-nemina.webp" type="image/webp">
+                        <source srcset="./img/jpg/outdoor/outdoor-nemina.jpg" type="image/jpeg">
+                        <img src="./img/jpg/outdoor/outdoor-nemina.jpg" loading="lazy" class="media-section__default"
+                            alt="surf photo in nemiña" title="Surf in Nemiña">
+                    </picture>
+
+                    <picture class="photography-section__picture">
+                        <source srcset="./img/webp/outdoor/outdoor-malpica.webp" type="image/webp">
+                        <source srcset="./img/jpg/outdoor/outdoor-malpica.jpg" type="image/jpeg">
+                        <img src="./img/jpg/outdoor/outdoor-malpica.jpg" loading="lazy" class="media-section__default"
+                            alt="surf photo in malpica" title="Surf in malpica">
+                    </picture>
+
+                    <picture class="photography-section__picture">
+                        <source srcset="./img/webp/outdoor/outdoor-riazor.webp" type="image/webp">
+                        <source srcset="./img/jpg/outdoor/outdoor-riazor.jpg" type="image/jpeg">
+                        <img src="./img/jpg/outdoor/outdoor-riazor.jpg" loading="lazy" class="media-section__default"
+                            alt="surf photo in riazor" title="Surf in riazor">
+                    </picture>
+
+                    <picture class="photography-section__picture">
+                        <source srcset="./img/webp/outdoor/outdoor-portosin.webp" type="image/webp">
+                        <source srcset="./img/jpg/outdoor/outdoor-portosin.jpg" type="image/jpeg">
+                        <img src="./img/jpg/outdoor/outdoor-portosin.jpg" loading="lazy" class="media-section__default"
+                            alt="surf photo in portosin" title="Surf in portosin">
+                    </picture>
+
+                    <picture class="photography-section__picture">
+                        <source srcset="./img/webp/outdoor/outdoor-sabon.webp" type="image/webp">
+                        <source srcset="./img/jpg/outdoor/outdoor-sabon.jpg" type="image/jpeg">
+                        <img src="./img/jpg/outdoor/outdoor-sabon.jpg" loading="lazy" class="media-section__default"
+                            alt="surf photo in sabon" title="Surf in sabon">
+                    </picture>
+
+                    <picture class="photography-section__picture">
+                        <source srcset="./img/webp/outdoor/outdoor-caion.webp" type="image/webp">
+                        <source srcset="./img/jpg/outdoor/outdoor-caion.jpg" type="image/jpeg">
+                        <img src="./img/jpg/outdoor/outdoor-caion.jpg" loading="lazy" class="media-section__default"
+                            alt="surf photo in caion" title="Surf in caion">
+                    </picture>
+                </div>
+
+                <!---------------- 
+                ARCHITECTURE GALLERY
+
+                Sección de la galería fotográfica dedicada a fotografías de arquitectura.
+                Se activa al seleccionar el filtro "INTERIOR & ARCHITECTURE" y forma parte del sistema general de navegación mediante lightbox.
+                ---------------->
+                <div class="photography-section__architecture-gallery media-section__gallery">
+                    <picture class="photography-section__picture">
+                        <source srcset="./img/webp/architecture/architecture-bershka.webp" type="image/webp">
+                        <source srcset="./img/jpg/architecture/architecture-bershka.jpg" type="image/jpeg">
+                        <img src="./img/jpg/architecture/architecture-bershka.jpg" loading="lazy"
+                            class="media-section__default" alt="interior design photo in bershka retail store"
+                            title="Interior photo in Bershka">
+                    </picture>
+
+                    <picture class="photography-section__picture">
+                        <source srcset="./img/webp/architecture/architecture-bimani.webp" type="image/webp">
+                        <source srcset="./img/jpg/architecture/architecture-bimani.jpg" type="image/jpeg">
+                        <img src="./img/jpg/architecture/architecture-bimani.jpg" loading="lazy"
+                            class="media-section__default" alt="interior design photo in bimani retail store"
+                            title="Interior photo in bimani">
+                    </picture>
+
+                    <picture class="photography-section__picture">
+                        <source srcset="./img/webp/architecture/architecture-exterior-house.webp" type="image/webp">
+                        <source srcset="./img/jpg/architecture/architecture-exterior-house.jpg" type="image/jpeg">
+                        <img src="./img/jpg/architecture/architecture-exterior-house.jpg" loading="lazy"
+                            class="media-section__default" alt="architecture photo of a white house"
+                            title="House architecture photo">
+                    </picture>
+
+                    <picture class="photography-section__picture">
+                        <source srcset="./img/webp/architecture/architecture-hoff.webp" type="image/webp">
+                        <source srcset="./img/jpg/architecture/architecture-hoff.jpg" type="image/jpeg">
+                        <img src="./img/jpg/architecture/architecture-hoff.jpg" loading="lazy"
+                            class="media-section__default" alt="interior design photo in hoff retail store"
+                            title="Interior photo in hoff">
+
+                    </picture>
+                    <picture class="photography-section__picture">
+                        <source srcset="./img/webp/architecture/architecture-interior-house.webp" type="image/webp">
+                        <source srcset="./img/jpg/architecture/architecture-interior-house.jpg" type="image/jpeg">
+                        <img src="./img/jpg/architecture/architecture-interior-house.jpg" loading="lazy"
+                            class="media-section__default" alt="interior architecture photo of a white house"
+                            title="House interior photo">
+                    </picture>
+
+                    <picture class="photography-section__picture">
+                        <source srcset="./img/webp/architecture/architecture-tous.webp" type="image/webp">
+                        <source srcset="./img/jpg/architecture/architecture-tous.jpg" type="image/jpeg">
+                        <img src="./img/jpg/architecture/architecture-tous.jpg" loading="lazy"
+                            class="media-section__default" alt="interior design photo in tous retail store"
+                            title="Interior photo in tous">
+                    </picture>
+                </div>
+
+                <!---------------- 
+                TRAVEL GALLERY
+
+                Sección de la galería fotográfica dedicada a fotografías de viajes.
+                Se activa al seleccionar el filtro "TRAVEL" y forma parte del sistema general de navegación mediante lightbox.
+                ---------------->
+                <div class="photography-section__travel-gallery media-section__gallery">
+                    <picture class="photography-section__picture">
+                        <source srcset="./img/webp/travel/travel-camino.webp" type="image/webp">
+                        <source srcset="./img/jpg/travel/travel-camino.jpg" type="image/jpeg">
+                        <img src="./img/jpg/travel/travel-camino.jpg" loading="lazy" class="media-section__default"
+                            alt="pilgrim walking the camino de santiago" title="Pilgrim walking the camino">
+                    </picture>
+
+                    <picture class="photography-section__picture">
+                        <source srcset="./img/webp/travel/travel-faros.webp" type="image/webp">
+                        <source srcset="./img/jpg/travel/travel-faros.jpg" type="image/jpeg">
+                        <img src="./img/jpg/travel/travel-faros.jpg" loading="lazy" class="media-section__default"
+                            alt="pilgrim walking the camino dos faros" title="Pilgrim walking the camino dos faros">
+                    </picture>
+
+                    <picture class="photography-section__picture">
+                        <source srcset="./img/webp/travel/travel-finisterre.webp" type="image/webp">
+                        <source srcset="./img/jpg/travel/travel-finisterre.jpg" type="image/jpeg">
+                        <img src="./img/jpg/travel/travel-finisterre.jpg" loading="lazy" class="media-section__default"
+                            alt="pilgrim walking the camino in finisterre"
+                            title="Pilgrim walking the camino in finisterre">
+                    </picture>
+
+                    <picture class="photography-section__picture">
+                        <source srcset="./img/webp/travel/travel-fisherman.webp" type="image/webp">
+                        <source srcset="./img/jpg/travel/travel-fisherman.jpg" type="image/jpeg">
+                        <img src="./img/jpg/travel/travel-fisherman.jpg" loading="lazy" class="media-section__default"
+                            alt="pilgrim walking the fishermen's trail" title="Pilgrim walking fishermen's trail">
+                    </picture>
+
+                    <picture class="photography-section__picture">
+                        <source srcset="./img/webp/travel/travel-lugo.webp" type="image/webp">
+                        <source srcset="./img/jpg/travel/travel-lugo.jpg" type="image/jpeg">
+                        <img src="./img/jpg/travel/travel-lugo.jpg" loading="lazy" class="media-section__default"
+                            alt="pilgrim walking the camino primitivo" title="Pilgrim walking the camino primitivo">
+
+                    </picture>
+                    <picture class="photography-section__picture">
+                        <source srcset="./img/webp/travel/travel-rota-vicentina.webp" type="image/webp">
+                        <source srcset="./img/jpg/travel/travel-rota-vicentina.jpg" type="image/jpeg">
+                        <img src="./img/jpg/travel/travel-rota-vicentina.jpg" loading="lazy"
+                            class="media-section__default" alt="pilgrim walking the rota vicentina"
+                            title="Pilgrim walking rota vicentina">
+                    </picture>
+
+                </div>
+                <!---------------- 
+                PRODUCT GALLERY
+
+                Sección de la galería fotográfica dedicada a fotografías de producto.
+                Se activa al seleccionar el filtro "PRODUCT" y forma parte del sistema general de navegación mediante lightbox.
+                ---------------->
+                <div class="photography-section__product-gallery media-section__gallery">
+                    <picture class="photography-section__picture">
+                        <source srcset="./img/webp/product/product-adolfodominguez.webp" type="image/webp">
+                        <source srcset="./img/jpg/product/product-adolfodominguez.jpg" type="image/jpeg">
+                        <img src="./img/jpg/product/product-adolfodominguez.jpg" loading="lazy"
+                            class="media-section__default" alt="adolfo dominguez perfumes corner"
+                            title="adolfo dominguez perfumes">
+                    </picture>
+
+                    <picture class="photography-section__picture">
+                        <source srcset="./img/webp/product/product-agur.webp" type="image/webp">
+                        <source srcset="./img/jpg/product/product-agur.jpg" type="image/jpeg">
+                        <img src="./img/jpg/product/product-agur.jpg" loading="lazy" class="media-section__default"
+                            alt="agur white bottles design" title="agur product design">
+                    </picture>
+
+                    <picture class="photography-section__picture">
+                        <source srcset="./img/webp/product/product-freshly.webp" type="image/webp">
+                        <source srcset="./img/jpg/product/product-freshly.jpg" type="image/jpeg">
+                        <img src="./img/jpg/product/product-freshly.jpg" loading="lazy" class="media-section__default"
+                            alt="two hands opening a soap bar" title="Solid pod freshly cosmetics design">
+
+                    </picture>
+                    <picture class="photography-section__picture">
+                        <source srcset="./img/webp/product/product-gym.webp" type="image/webp">
+                        <source srcset="./img/jpg/product/product-gym.jpg" type="image/jpeg">
+                        <img src="./img/jpg/product/product-gym.jpg" loading="lazy" class="media-section__default"
+                            alt="a girl walking with a jumping rope" title="Jumping rope brand photo">
+
+                    </picture>
+                    <picture class="photography-section__picture">
+                        <source srcset="./img/webp/product/product-restaurant.webp" type="image/webp">
+                        <source srcset="./img/jpg/product/product-restaurant.jpg" type="image/jpeg">
+                        <img src="./img/jpg/product/product-restaurant.jpg" loading="lazy"
+                            class="media-section__default" alt="gourmet dishes with michelin star"
+                            title="Food photography restaurant">
+
+                    </picture>
+                    <picture class="photography-section__picture">
+                        <source srcset="./img/webp/product/product-zara.webp" type="image/webp">
+                        <source srcset="./img/jpg/product/product-zara.jpg" type="image/jpeg">
+                        <img src="./img/jpg/product/product-zara.jpg" loading="lazy" class="media-section__default"
+                            alt="zara perfumes on a gray background" title="Zara perfume photography">
+                    </picture>
+                </div>
+            </div>
+        </section>
+        <!---------------- 
+        AUDIOVISUAL SECTION
+
+        Sección dedicada a los proyectos audiovisuales del Portfolio.
+        Contiene título y una breve reflexión como subtítulo, que introduce el enfoque personal del autor hacia el mundo audiovisual.
+
+        Forma parte del sistema general de secciones multimedia del sitio, compartiendo la misma estructura base que la sección "Photography".
+        ---------------->
+        <div id="audiovisual"></div>
+        <section class="media-section audiovisual-section d-flex-column">
+            <h2 class="media-section__title">/*Audiovisual</h2>
+            <p class="media-section__subtitle">A friend once told me something that stuck in my mind: "For me, my
+                camera is like a passport. If I hadn’t had it with me, I wouldn’t have been able to see all that I have
+                seen and experienced."</p>
+
+            <!---------------- 
+            AUDIOVISUAL CAROUSEL
+
+            Carrusel de vídeos con navegación horizontal mediante botones laterales.
+            Los vídeos están preparados para autoplay en loop, con formatos compatibles (.webm y .mp4) y poster de portada.
+            Incluye clones iniciales y finales para lograr un desplazamiento infinito con JavaScript.
+            ---------------->
+
+
+            <div class="media-section__carousel-container flex-center">
+                <!-- BOTÓN IZQUIERDO-->
+                <button class="media-section__carousel-btn prev" title="arrow before">&#10094;</button>
+                <div class="media-section__carousel-wrapper">
+                    <div class="media-section__carousel-track d-flex">
+
+                        <!-- CLONES INICIALES -->
+                        <div class="media-section__carousel-item flex-center">
+                            <video controls class="media-section__default" poster="./img/webp/freshly-cover.webp"
+                                preload="none">
+
+                                <source src="./video/webm/freshly.webm" type="video/webm">
+                                <source src="./video/mp4/freshly.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <div class="media-section__carousel-item flex-center">
+                            <video controls class="media-section__default" poster="./img/webp/emsamble-cover.webp"
+                                preload="none">
+
+                                <source src="./video/webm/emsamble.webm" type="video/webm">
+                                <source src="./video/mp4/emsamble.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <div class="media-section__carousel-item flex-center">
+                            <video controls class="media-section__default"
+                                poster="./img/webp/adolfodominguez-cover.webp" preload="none">
+
+                                <source src="./video/webm/adolfodominguez.webm" type="video/webm">
+                                <source src="./video/mp4/adolfodominguez.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <!-- VíDEOS REALES -->
+
+                        <div class="media-section__carousel-item flex-center">
+                            <video controls class="media-section__default" poster="./img/webp/cecotec-cover.webp"
+                                preload="none">
+
+                                <source src="./video/webm/cecotec.webm" type="video/webm">
+                                <source src="./video/mp4/cecotec.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <div class="media-section__carousel-item flex-center">
+                            <video controls class="media-section__default" poster="./img/webp/chess-cover.webp"
+                                preload="none">
+
+                                <source src="./video/webm/chess.webm" type="video/webm">
+                                <source src="./video/mp4/chess.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <div class="media-section__carousel-item flex-center">
+                            <video controls class="media-section__default" poster="./img/webp/freshly-cover.webp"
+                                preload="none">
+
+                                <source src="./video/webm/freshly.webm" type="video/webm">
+                                <source src="./video/mp4/freshly.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <div class="media-section__carousel-item flex-center">
+                            <video controls class="media-section__default" poster="./img/webp/emsamble-cover.webp"
+                                preload="none">
+
+                                <source src="./video/webm/emsamble.webm" type="video/webm">
+                                <source src="./video/mp4/emsamble.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <div class="media-section__carousel-item flex-center">
+                            <video controls class="media-section__default"
+                                poster="./img/webp/adolfodominguez-cover.webp" preload="none">
+
+                                <source src="./video/webm/adolfodominguez.webm" type="video/webm">
+                                <source src="./video/mp4/adolfodominguez.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <div class="media-section__carousel-item flex-center">
+                            <video controls class="media-section__default"
+                                poster="./img/webp/apiediperilmondo-cover.webp" preload="none">
+
+                                <source src="./video/webm/apiediperilmondo.webm" type="video/webm">
+                                <source src="./video/mp4/apiediperilmondo.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <!-- CLONES FINALES -->
+                        <div class="media-section__carousel-item flex-center">
+                            <video controls class="media-section__default" poster="./img/webp/cecotec-cover.webp"
+                                preload="none">
+
+                                <source src="./video/webm/cecotec.webm" type="video/webm">
+                                <source src="./video/mp4/cecotec.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <div class="media-section__carousel-item flex-center">
+                            <video controls class="media-section__default" poster="./img/webp/chess-cover.webp"
+                                preload="none">
+
+                                <source src="./video/webm/chess.webm" type="video/webm">
+                                <source src="./video/mp4/chess.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <div class="media-section__carousel-item flex-center">
+                            <video controls class="media-section__default" poster="./img/webp/freshly-cover.webp"
+                                preload="none">
+
+                                <source src="./video/webm/freshly.webm" type="video/webm">
+                                <source src="./video/mp4/freshly.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <!-- BOTÓN DERECHO-->
+                <button class="media-section__carousel-btn  next" title="arrow next">&#10095;</button>
+            </div>
+        </section>
+
+        <!---------------- 
+        PROJECT SECTION
+
+        Sección que presenta proyectos destacados con imagen, título y un enlace a una página con más detalles.
+        Cada imagen usa los formatos .webp y .jpg, optimizando la carga mediante loading="lazy" y mejorando la accesibilidad con atributos alt y title.
+        ---------------->
+        <div id="projects"></div>
+        <section class="media-section projects-section d-flex-column">
+            <h2 class="media-section__title">/*Projects</h2>
+            <p class="media-section__subtitle">Some projects go beyond simply filming or taking pictures. They carry
+                deeper stories, layered ideas, and a longer creative journey. Here is a selection of works where
+                storytelling and vision come together in a more personal and developed way.</p>
+
+            <!---------------- 
+            EL URUGUAYO PROJECT
+
+            Proyecto destacado con imagen de portada y enlace a una página detallada.
+            Optimización de imágenes con formato .webp y .jpg.
+            ---------------->
+            <picture class="media-section__photo radius">
+                <source srcset="./img/webp/eluruguayo.webp" type="image/webp">
+                <source srcset="./img/jpg/eluruguayo.jpg" type="image/jpeg">
+                <img src="./img/jpg/eluruguayo.jpg" loading="lazy" class="media-section__default absolute"
+                    alt="el uruguayo film cover" title="el uruguayo shortfilm">
+            </picture>
+
+            <div class="project-section__text flex-center">
+                <h3 class="project-section__title thin height-auto">EL URUGUAYO</h3>
+                <a href="./eluruguayo.html" title="el uruguayo" class="projects__button btn-base" target="_blank"
+                    rel="noreferrer">DISCOVER MORE</a>
+            </div>
+
+            <!---------------- 
+            FOR ME IS PROJECT
+
+            Proyecto presentado con imagen y enlace a página detallada.
+            Imágenes optimizadas en .webp y .jpg para compatibilidad y rendimiento.
+            ---------------->
+            <picture class="media-section__photo radius">
+                <source srcset="./img/webp/formeis.webp" type="image/webp">
+                <source srcset="./img/jpg/formeis.jpg" type="image/jpeg">
+                <img src="./img/jpg/formeis.jpg" loading="lazy" class="media-section__default absolute"
+                    alt="for me is film cover" title="for me is shortfilm">
+            </picture>
+
+            <div class="project-section__text flex-center">
+                <h3 class="project-section__title thin height-auto">FOR ME IS</h3>
+                <a href="./formeis.html" title="for me is" class="projects__button btn-base" target="_blank"
+                    rel="noreferrer">DISCOVER MORE</a>
+            </div>
+
+        </section>
+
+        <!---------------- 
+        ABOUT SECTION
+
+        Sección dedicada a mi biografía, que incluye su fotografía de perfil y una descripción sobre mi historia personal y profesional.
+        Imágenes optimizadas para mejorar la carga, acompañadas de un texto que habla de mis estudios y pasiones. 
+        ---------------->
+        <div id="aboutme"></div>
+        <section class="media-section about-section d-flex-column">
+            <h2 class="media-section__title">/*I am Daniel</h2>
+
+            <picture class="media-section__photo radius">
+                <source srcset="./img/webp/daniel.webp" type="image/webp">
+                <source srcset="./img/jpg/daniel.jpg" type="image/jpeg">
+                <img src="./img/jpg/daniel.jpg" loading="lazy" class="media-section__default absolute"
+                    alt="daniel's profile photo" title="Daniel working with his camera">
+            </picture>
+
+            <p class="about-section__subtitle">
+                I was born in Milan, from a Danish father and Italian mother, and lived there until I was 19.
+                In my earlier my formative years, I attended a digital communication-dedicated high school. This meant
+                that from the start, it allowed me to develop little projects and earn something to satisfy some whims,
+                like buying my first bike which I used to ride for 40km to go to school.</p>
+            <p class="about-section__subtitle">
+                A few years ago, I moved to Bologna to study Cinematography at the Alma Mater Studiorum (Università di
+                Bologna). Then, I lived in Santiago de Compostela to study Spanish. Few years ago, I moved to Valencia
+                with the idea of studying a Máster degree in Filmmaking in Barreira & Centro Sperimentale di
+                Cinematografia. I lived there for few years and I worked in a Design Studio called Culdesac.</p>
+            <p class="about-section__subtitle">
+                Currently, I am living in A Coruña (Galicia) searching for a new opportunity.
+                The idea of a team and community sharing passion and vision, and working for a purpose is a principle I
+                strongly feel connected to. My main purpose in life is to connect my passions: cinematography, travel,
+                nature and sport into something bigger.</p>
+        </section>
+
+        <!---------------- 
+        CONTACT SECTION
+
+        Esta sección permite a los usuarios ponerse en contacto a través de un formulario. Los campos incluyen nombre, correo electrónico y mensaje.
+        La parte BACKEND está pendiente de implementar.
+        ---------------->
+        <div id="contact"></div>
+        <section class="media-section contact-section d-flex-column">
+            <h2 class="media-section__title">/*Let's get in touch</h2>
+            <div class="contact-section__container flex-center">
+                <form class="contact-section__form d-flex-column" method="POST" action="#">
+
+                    <label for="firstname" class="visually-hidden absolute">First name</label>
+
+                    <!---------------- 
+                    INPUT FIELDS
+
+                    Los campos de texto tienen la etiqueta oculta mediante la clase "visually-hidden" por razones estéticas,
+                    mientras que los placeholders proporcionan las indicaciones visibles para el usuario.
+                    ---------------->
+
+                    <input type="text" id="firstname" class="contact-section__text-input bg-trans white"
+                        name="firstname" required placeholder="Your name here">
+                    <label for="email" class="visually-hidden">E-mail</label>
+                    <input type="email" id="email" class="contact-section__text-input bg-trans white" name="email"
+                        required placeholder="Your E-mail here">
+
+                    <label for="message" class="visually-hidden">Message</label>
+                    <textarea name="message" id="message" class="contact-section__text-input--big bg-trans border"
+                        required placeholder="Write something here"></textarea>
+
+                    <input type="submit" value="SEND" class="contact-section__button btn-base">
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!---------------- 
+    FOOTER
+
+    Contiene enlaces a redes sociales, enlaces de las secciones clave y el logo.
+    ---------------->
+
+    <footer class="footer flex-center d-flex-column center">
+        <div class="footer__socialmedia">
+            <a href="https://www.instagram.com/danielo_intheworld/" aria-label="Instagram profile" title="instagram"
+                rel="noreferrer" target="_blank" class="footer__link">
+                <img src="./img/svg/instagram.svg" alt="instagram logo" class="footer__socialmedia-logo height-auto"
+                    title="instagram logo"></a>
+            <a href="https://www.linkedin.com/in/danieldellepiane/" aria-label="Linkedin profile" title="linkedin"
+                rel="noreferrer" target="_blank" class="footer__link footer__link">
+                <img src="./img/svg/linkedin.svg" alt="linkedin logo" class="footer__socialmedia-logo height-auto"
+                    title="linkedin logo"></a>
+        </div>
+
+        <nav class="footer__nav flex-center">
+            <ul class="footer__ul flex-center">
+                <li><a href="./index.html" class="menu__link footer__link" title="home">HOME</a></li>
+                <li><a href="#photography" class="menu__link footer__link" title="photography">PHOTOGRAPHY</a>
+                </li>
+                <li><a href="#audiovisual" class="menu__link footer__link" title="audiovisual">AUDIOVISUAL</a>
+                </li>
+                <li><a href="#projects" class="menu__link footer__link" title="projects">PROJECTS</a></li>
+            </ul>
+        </nav>
+
+        <div class="footer__logo flex-center column"> <svg class="menu__logo-img" role="img"
+                aria-label="daniel dellepiane logo with subtitle">
+                <use href="#logo-daniel"></use>
+            </svg></div>
+    </footer>
+    <!---------------- 
+    JAVASCRIPT
+
+    Se incluye el script JavaScript.
+    ---------------->
+    <script src="./script.js" defer></script>
+    <!---------------- 
+    BODY END
+
+    Aquí acaba el Body.
+    ---------------->
+</body>
+
+<!---------------- 
+    HTML END
+
+    Aquí acaba el HTML.
+    ---------------->
+
+</html>
